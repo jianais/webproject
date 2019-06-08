@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<header>
+		 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="../js/globalobj.js"></script>
+		<script src="../js/main.js"></script>
+	</header>
+	<body>
+		<div style="margin-left:7.5%">
+			<label for="uploadfile">选择一个图片进行处理:</label>
+			<input name="uploadfile" id="uploadfile" onchange="Main.selectFile()" type="file">
+		</div>
+		<div style="margin-top:20px">
+			<table style="width:80%">
+				<tr>
+					<td align="center">
+						<canvas id="myCanvas" width="350" height="350" style="border:1px solid #d3d3d3;">
+							Your browser does not support the HTML5 canvas tag.
+						</canvas>
+					</td>
+					<td align="center">
+						<button type="button" onclick="Main.toGray()">灰度化--></button>
+					</td>
+					<td align="center">
+						<canvas id="resultCanvas" width="350" height="350" style="border:1px solid #d3d3d3;">
+							Your browser does not support the HTML5 canvas tag.
+						</canvas>
+					</td>
+				</tr>
+			</table>
+		<div>
+	</body>
+	<script>
+		globalObj.init();
+		Main.init();
+	</script>
+</html>
