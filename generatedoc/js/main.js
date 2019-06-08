@@ -41,10 +41,37 @@ var Main = {
 			result.width = cw;
 			result.height = cw/ scale;
 		}
+		globalObj.showSize = result;
 		return result;
 	},
 	toGray: function(){
-		console.log(globalObj.context.getImageData(0, 0, globalObj.image.width, globalObj.image.height));
+		debugger;
+		globalObj.grayContext.clearRect(0, 0, globalObj.grayCanvas.width, globalObj.grayCanvas.height);
+		var imgData = globalObj.context.getImageData(0, 0, globalObj.showSize.width, globalObj.showSize.height);
+		var grayData = globalObj.grayContext.getImageData(0, 0, globalObj.showSize.width, globalObj.showSize.height);
+		for(var i = 0;i < imgData.data.length;i = i + 4){
+			var grayValue = Main.getGrayValue(imgData.data[i], imgData.data[i+1], imgData.data[i+2], imgData.data[i+3], "1");
+			grayData.data[i] = grayValue;
+			grayData.data[i+1] = grayValue;
+			grayData.data[i+2] = grayValue;
+			grayData.data[i+3] = grayValue;
+		}
+		globalObj.grayContext.putImageData(grayData, 0, 0, 0, 0, globalObj.showSize.width, globalObj.showSize.height);
+		console.log(imgData.data.length);
+		console.log(grayData.data.length);
+	},
+	/**
+	* mode为1则使用均值法求灰度值，为2使用比例求灰度值
+	*
+	**/
+	getGrayValue: function(r, g, b, a, mode){
+		if(mode == "1"){
+			return (r+g+b+a)/4;
+		}else if(mode == "2"){
+			return 0.299*r + 0.587*g + 0.114*b;
+		}else if(mode == 3){
+			return Math.max(r,g,b);
+		}
 	},
 	
 }

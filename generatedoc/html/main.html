@@ -6,12 +6,12 @@
 		<script src="../js/main.js"></script>
 	</header>
 	<body>
-		<div style="margin-left:7.5%">
+		<div style="margin-left:3%">
 			<label for="uploadfile">选择一个图片进行处理:</label>
 			<input name="uploadfile" id="uploadfile" onchange="Main.selectFile()" type="file">
 		</div>
 		<div style="margin-top:20px">
-			<table style="width:80%">
+			<table style="width:100%">
 				<tr>
 					<td align="center">
 						<canvas id="myCanvas" width="350" height="350" style="border:1px solid #d3d3d3;">
@@ -22,7 +22,15 @@
 						<button type="button" onclick="Main.toGray()">灰度化--></button>
 					</td>
 					<td align="center">
-						<canvas id="resultCanvas" width="350" height="350" style="border:1px solid #d3d3d3;">
+						<canvas id="grayCanvas" width="350" height="350" style="border:1px solid #d3d3d3;">
+							Your browser does not support the HTML5 canvas tag.
+						</canvas>
+					</td>
+					<td align="center">
+						<button type="button" onclick="Main.toBinarization()">二值化--></button>
+					</td>
+					<td align="center">
+						<canvas id="binCanvas" width="350" height="350" style="border:1px solid #d3d3d3;">
 							Your browser does not support the HTML5 canvas tag.
 						</canvas>
 					</td>
