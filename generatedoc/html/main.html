@@ -4,6 +4,14 @@
 		 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<script src="../js/globalobj.js"></script>
 		<script src="../js/main.js"></script>
+		<style type="text/css">
+			p{
+				margin: 0;
+				padding: 0;
+				font-family: monospace;
+				font-size:10px
+			}
+		</style>
 	</header>
 	<body>
 		<div style="margin-left:3%">
@@ -35,7 +43,21 @@
 						</canvas>
 					</td>
 				</tr>
+				<tr>
+					<td  align="center">
+						<button type="button" onclick="Main.generateText('source-image')">生成--></button>
+					</td>
+					<td></td>
+					<td align="center">
+						<button type="button" onclick="Main.generateText('gray-image')">生成--></button>
+					</td>
+					<td></td>
+					<td align="center">
+						<button type="button" onclick="Main.generateText('bin-image')">生成--></button>
+					</td>
+				</tr>
 			</table>
+			<div id="image-text" style="float:left;"></div>
 		<div>
 	</body>
 	<script>
